@@ -37,6 +37,14 @@ ext {
     rxkotlinVersion = '2.1.0'
 
     javaInjectVersion = '1'
+
+    timberVersion = '4.7.1'
+
+    daggerVersion = '2.11'
+
+    okhttpInterceptorVErsion = '3.7.0'
+
+    lifecycleVersion = '2.0.0-alpha1'
 }
 
 dependencies {
@@ -49,12 +57,25 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation "com.github.pakoito:RxPaper2:$paperVersion"
+
     implementation "com.squareup.moshi:moshi:$moshiVersion"
+
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitAdapterVersion"
 
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
 
     implementation "javax.inject:javax.inject:$javaInjectVersion"
+
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpInterceptorVErsion"
+
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
 }
