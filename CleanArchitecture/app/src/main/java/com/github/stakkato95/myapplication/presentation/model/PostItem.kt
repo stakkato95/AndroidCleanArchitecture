@@ -19,7 +19,7 @@ class PostItemMapper @Inject constructor() {
             cup.post.body,
             cup.user.id,
             cup.user.name,
-            cup.user.surname,
+            cup.user.username,
             cup.user.website
     )
 

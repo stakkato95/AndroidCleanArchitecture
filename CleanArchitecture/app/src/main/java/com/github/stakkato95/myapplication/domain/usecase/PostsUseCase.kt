@@ -12,12 +12,14 @@ class PostsUseCase @Inject constructor(private val userRepository: UserRepositor
                                        private val postRepository: PostRepository,
                                        private val mapper: CombinedUserPostMapper) {
 
-    fun get(refresh: Boolean): Single<List<CombinedUserPost>> = Single.zip(userRepository.get(refresh), postRepository.get(refresh), BiFunction { users, posts -> mapper.map(users, posts) })
+    fun get(refresh: Boolean): Single<List<CombinedUserPost>> = Single.zip(userRepository.get(refresh), postRepository.get(refresh), BiFunction { users, posts ->
+        mapper.map(users, posts)
+    })
 }
 
 data class CombinedUserPost(val user: User, val post: Post)
 
 class CombinedUserPostMapper @Inject constructor() {
 
-    fun map(users: List<User>, posts: List<Post>) = posts.map { post -> CombinedUserPost(users.first { it.id == post.id }, post) }
+    fun map(users: List<User>, posts: List<Post>) = posts.map { post -> CombinedUserPost(users.first { it.id == post.userId }, post) }
 }

@@ -13,7 +13,9 @@ class PostRepositoryImpl @Inject constructor(private val api: PostsApi,
     override val key = "Posts"
 
     override fun get(refresh: Boolean): Single<List<Post>> = when(refresh) {
-        true -> api.getPosts().flatMap { set(it) }
+        true -> api
+                .getPosts()
+                .flatMap { set(it) }
         false -> cache.load(key).onErrorResumeNext { get(true) }
     }
 
@@ -21,10 +23,17 @@ class PostRepositoryImpl @Inject constructor(private val api: PostsApi,
         true -> api
                 .getPost(postId)
                 .flatMap { set(it) }
-        false -> cache.load(key).map { it.first { it.id == postId } }.onErrorResumeNext { get(postId, true) }
+        false -> cache
+                .load(key)
+                .map { it.first { it.id == postId } }
+                .onErrorResumeNext { get(postId, true) }
     }
 
-    private fun set(post: Post) = cache.load(key).map { it.filter { it.id != post.id }.plus(post) }.flatMap { set(it) }.map { post }
+    private fun set(post: Post) = cache
+            .load(key)
+            .map { it.filter { it.id != post.id }.plus(post) }
+            .flatMap { set(it) }
+            .map { post }
 
     private fun set(posts: List<Post>) = cache.save(key, posts)
 }
