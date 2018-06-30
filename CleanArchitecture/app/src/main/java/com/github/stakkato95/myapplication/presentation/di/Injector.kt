@@ -1,6 +1,6 @@
 package com.github.stakkato95.myapplication.presentation.di
 
-import com.github.stakkato95.myapplication.PostsActivity
+import com.github.stakkato95.myapplication.presentation.posts.PostsActivity
 import dagger.Component
 import javax.inject.Singleton
 

@@ -18,7 +18,9 @@ class PostRepositoryImpl @Inject constructor(private val api: PostsApi,
     }
 
     override fun get(postId: String, refresh: Boolean): Single<Post> = when(refresh) {
-        true -> api.getPost(postId).flatMap { set(it) }
+        true -> api
+                .getPost(postId)
+                .flatMap { set(it) }
         false -> cache.load(key).map { it.first { it.id == postId } }.onErrorResumeNext { get(postId, true) }
     }
 

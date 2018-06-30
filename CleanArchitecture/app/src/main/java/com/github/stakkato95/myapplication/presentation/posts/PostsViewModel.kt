@@ -19,10 +19,10 @@ class PostsViewModel @Inject constructor(private val useCase: PostsUseCase,
 
 
     init {
-        get(true)
+        loadData(true)
     }
 
-    fun get(refresh: Boolean = false) {
+    fun loadData(refresh: Boolean = false) {
         compositeDisposable.add(
                 useCase
                         .get(refresh)

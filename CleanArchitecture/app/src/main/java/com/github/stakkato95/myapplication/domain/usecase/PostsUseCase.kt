@@ -8,9 +8,9 @@ import io.reactivex.Single
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class PostsUseCase(private val userRepository: UserRepository,
-                   private val postRepository: PostRepository,
-                   private val mapper: CombinedUserPostMapper) {
+class PostsUseCase @Inject constructor(private val userRepository: UserRepository,
+                                       private val postRepository: PostRepository,
+                                       private val mapper: CombinedUserPostMapper) {
 
     fun get(refresh: Boolean): Single<List<CombinedUserPost>> = Single.zip(userRepository.get(refresh), postRepository.get(refresh), BiFunction { users, posts -> mapper.map(users, posts) })
 }

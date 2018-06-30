@@ -14,6 +14,10 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initDagger()
+        initTimber()
+        initRxJavaErrorHandlingPlugin()
+        initRxPaper()
     }
 
     private fun initDagger() {
