@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -44,7 +46,9 @@ ext {
 
     okhttpInterceptorVErsion = '3.7.0'
 
-    lifecycleVersion = '2.0.0-alpha1'
+    lifecycleVersion = '1.1.1'
+
+    daggerKotlinVersion = '2.15'
 }
 
 dependencies {
@@ -72,10 +76,13 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
 
     implementation "com.google.dagger:dagger:$daggerVersion"
-    implementation "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerKotlinVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerKotlinVersion"
+
 
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpInterceptorVErsion"
 
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
 }

@@ -1,7 +1,8 @@
 package com.github.stakkato95.myapplication.presentation
 
 import android.app.Application
-import com.github.stakkato95.myapplication.presentation.di.AppModule
+import com.github.stakkato95.myapplication.presentation.di.DaggerInjector
+import com.github.stakkato95.myapplication.presentation.di.Injector
 import com.pacoworks.rxpaper2.RxPaperBook
 import io.reactivex.plugins.RxJavaPlugins
 import timber.log.Timber
@@ -18,7 +19,6 @@ class App : Application() {
     private fun initDagger() {
         injector = DaggerInjector
                 .builder()
-                .appModule(AppModule(this))
                 .build()
     }
 

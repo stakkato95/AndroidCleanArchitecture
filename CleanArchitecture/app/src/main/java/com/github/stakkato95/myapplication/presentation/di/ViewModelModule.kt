@@ -1,7 +1,7 @@
 package com.github.stakkato95.myapplication.presentation.di
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import com.github.stakkato95.myapplication.presentation.ViewModelFactory
 import com.github.stakkato95.myapplication.presentation.ViewModelKey
 import com.github.stakkato95.myapplication.presentation.posts.PostsViewModel

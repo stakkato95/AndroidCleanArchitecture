@@ -1,7 +1,7 @@
 package com.github.stakkato95.myapplication.presentation
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import dagger.MapKey
 import javax.inject.Inject
 import javax.inject.Provider
