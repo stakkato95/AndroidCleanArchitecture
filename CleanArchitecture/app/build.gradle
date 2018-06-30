@@ -28,6 +28,15 @@ repositories {
 
 ext {
     paperVersion = '1.2.0'
+    moshiVersion = '1.6.0'
+
+    retrofitVersion = '2.4.0'
+    retrofitAdapterVersion = '2.2.0'
+
+    rxandroidVersion = '2.0.2'
+    rxkotlinVersion = '2.1.0'
+
+    javaInjectVersion = '1'
 }
 
 dependencies {
@@ -40,4 +49,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation "com.github.pakoito:RxPaper2:$paperVersion"
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
+
+    implementation "javax.inject:javax.inject:$javaInjectVersion"
 }
