@@ -26,7 +26,7 @@ class App : Application() {
                 .build()
     }
 
-    fun initTimber() {
+    private fun initTimber() {
         Timber.plant(Timber.DebugTree())
     }
 
